@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BubbleChat Component</title>
+    <script src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script src="https://unpkg.com/flowise-embed-react/dist/index.js"></script>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+        #root {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        const { BubbleChat } = FlowiseEmbed;
+        
+        const App = () => {
+            return (
+                <BubbleChat 
+                    chatflowid="65444df6-1e79-4735-aa26-2bbaeac6897a"
+                    apiHost="https://flowise-execo.onrender.com"
+                    theme={{
+                        button: {
+                            backgroundColor: "#3B81F6",
+                            right: "unset",
+                            bottom: "20px",
+                            left: "20px"
+                        },
+                        chatWindow: {
+                            welcomeMessage: "Hello! How can I assist you today?",
+                            backgroundColor: "#ffffff",
+                            height: 700,
+                            width: 400,
+                            fontSize: 16,
+                            poweredByTextColor: "#303235",
+                            botMessage: {
+                                backgroundColor: "#f7f8ff",
+                                textColor: "#303235",
+                                showAvatar: true,
+                                avatarSrc: "https://raw.githubusercontent.com/zahidkhawaja/langchain-chat-nextjs/main/public/bot-image.png",
+                            },
+                            userMessage: {
+                                backgroundColor: "#3B81F6",
+                                textColor: "#ffffff",
+                                showAvatar: true,
+                                avatarSrc: "https://raw.githubusercontent.com/zahidkhawaja/langchain-chat-nextjs/main/public/user-image.png",
+                            },
+                            textInput: {
+                                placeholder: "Type your message here...",
+                                backgroundColor: "#ffffff",
+                                textColor: "#303235",
+                                sendButtonColor: "#3B81F6",
+                            }
+                        }
+                    }}
+                />
+            );
+        };
+
+        ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
+</body>
+</html>
